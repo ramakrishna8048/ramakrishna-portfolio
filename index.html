@@ -454,7 +454,140 @@
             transform: translateX(5px);
         }
 
-        /* Contact Section */
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .blog-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .blog-category {
+            background: rgba(102, 126, 234, 0.2);
+            color: var(--primary-color);
+            padding: 0.2rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .blog-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .blog-excerpt {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .blog-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .blog-link:hover {
+            transform: translateX(5px);
+        }
+
+        .view-all-blogs {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .view-all-blogs .btn {
+            background: var(--gradient-2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .view-all-blogs .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.4);
+        }
         .contact {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
@@ -578,6 +711,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -752,6 +886,94 @@
                     </a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Personal Blog Section -->
+    <section id="blog" class="animate-on-scroll">
+        <h2 class="section-title">Personal Blog</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Sharing insights, experiences, and learnings from my journey in MLOps, cloud technologies, and software engineering.
+        </p>
+        <div class="blog-grid">
+            <div class="blog-card" onclick="window.open('blog.html', '_blank')">
+                <div class="blog-header">
+                    <div class="blog-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                <span>Dec 15, 2024</span>
+                            </div>
+                            <span class="blog-category">MLOps</span>
+                        </div>
+                        <h3>Building Scalable ML Pipelines with Apache Airflow</h3>
+                    </div>
+                </div>
+                <p class="blog-excerpt">
+                    A deep dive into how I implemented automated ML workflows at UHCL, reducing manual data preparation by 70% and achieving 87% model accuracy...
+                </p>
+                <a href="blog.html" class="blog-link" target="_blank">
+                    Read More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="blog-card" onclick="window.open('blog.html', '_blank')">
+                <div class="blog-header">
+                    <div class="blog-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                <span>Nov 28, 2024</span>
+                            </div>
+                            <span class="blog-category">NLP</span>
+                        </div>
+                        <h3>Creating Intelligent Chatbots with spaCy and Flask</h3>
+                    </div>
+                </div>
+                <p class="blog-excerpt">
+                    Lessons learned while building the Virtual Recreation Center Assistant, achieving 90%+ intent recognition accuracy using natural language processing...
+                </p>
+                <a href="blog.html" class="blog-link" target="_blank">
+                    Read More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="blog-card" onclick="window.open('blog.html', '_blank')">
+                <div class="blog-header">
+                    <div class="blog-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                <span>Nov 10, 2024</span>
+                            </div>
+                            <span class="blog-category">Career</span>
+                        </div>
+                        <h3>My Journey from India to Houston: MS in Software Engineering</h3>
+                    </div>
+                </div>
+                <p class="blog-excerpt">
+                    Reflections on transitioning from working at Bank of America in India to pursuing my Master's degree at University of Houston Clear Lake...
+                </p>
+                <a href="blog.html" class="blog-link" target="_blank">
+                    Read More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="view-all-blogs">
+            <a href="blog.html" class="btn" target="_blank">
+                <i class="fas fa-blog"></i>
+                View All Blog Posts
+            </a>
         </div>
     </section>
 
